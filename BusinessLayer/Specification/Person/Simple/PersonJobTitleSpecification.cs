@@ -4,7 +4,7 @@ namespace BusinessLayer.Specification.Person.Simple
 {
     using Person = BusinessLayer.Entity.Person;
 
-    public class PersonJobTitleSpecification : ISpecification<Person>
+    public class PersonJobTitleSpecification : CompositeSpecification<Person>
     {
         private readonly string _jobTitleFragment;
 
@@ -13,7 +13,7 @@ namespace BusinessLayer.Specification.Person.Simple
             this._jobTitleFragment = jobTitleFragment;
         }
 
-        public bool IsSatisfiedBy(Person item)
+        public override bool IsSatisfiedBy(Person item)
         {
             if (string.IsNullOrEmpty(_jobTitleFragment))
             {

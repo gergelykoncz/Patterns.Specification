@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.Specification", "Patterns.Specification\Patterns.Specification.csproj", "{20B9B32F-061C-44F0-897C-519B6B34801B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "Patterns.Specification\WebUI.csproj", "{20B9B32F-061C-44F0-897C-519B6B34801B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{9FD1FE7D-DC4D-47A6-B3F8-113B888E63C9}"
 EndProject

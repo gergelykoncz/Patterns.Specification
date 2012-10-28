@@ -47,12 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\Facade\PersonFacadeTests.cs" />
     <Compile Include="BusinessLayer\Specification\Abstract\AndSpecificationTests.cs" />
     <Compile Include="BusinessLayer\Specification\Abstract\CompositeSpecificationTests.cs" />
     <Compile Include="BusinessLayer\Specification\Abstract\NotSpecificationTests.cs" />
     <Compile Include="BusinessLayer\Specification\Abstract\OrSpecificationTests.cs" />
     <Compile Include="BusinessLayer\Specification\Abstract\TestHelper\SpecificationGenerator.cs" />
-    <Compile Include="BusinessLayer\Specification\Person\PersonNameSpecificationTests.cs" />
+    <Compile Include="BusinessLayer\Specification\Persons\PersonJobTitleSpecificationTests.cs" />
+    <Compile Include="BusinessLayer\Specification\Persons\PersonFromAgeSpecificationTests.cs" />
+    <Compile Include="BusinessLayer\Specification\Persons\PersonNameSpecificationTests.cs" />
+    <Compile Include="BusinessLayer\Specification\Persons\PersonUntilAgeSpecificationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

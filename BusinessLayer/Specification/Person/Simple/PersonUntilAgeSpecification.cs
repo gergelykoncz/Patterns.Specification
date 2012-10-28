@@ -4,7 +4,7 @@ namespace BusinessLayer.Specification.Person.Simple
 {
     using Person = BusinessLayer.Entity.Person;
 
-    public class PersonUntilAgeSpecification : ISpecification<Person>
+    public class PersonUntilAgeSpecification : CompositeSpecification<Person>
     {
         private readonly int? _untilAge;
 
@@ -13,7 +13,7 @@ namespace BusinessLayer.Specification.Person.Simple
             this._untilAge = untilAge;
         }
 
-        public bool IsSatisfiedBy(Person item)
+        public override bool IsSatisfiedBy(Person item)
         {
             if (!_untilAge.HasValue)
             {

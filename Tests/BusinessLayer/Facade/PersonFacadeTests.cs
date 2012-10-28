@@ -21,7 +21,7 @@ namespace Tests.BusinessLayer.Facade
             var repositoryMock = new Mock<PersonRepository>();
             repositoryMock.Setup<IEnumerable<Person>>(x => x.GetAll()).Returns(persons.AsEnumerable());
 
-            var facade = new PersonFacade(repositoryMock.Object);
+            var facade = new PersonFacade(repositoryMock.Object, null);
 
             Assert.AreEqual(persons.AsEnumerable(), facade.GetPersons());
         }

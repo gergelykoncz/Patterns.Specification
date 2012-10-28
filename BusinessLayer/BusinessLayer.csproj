@@ -52,7 +52,10 @@
     <Compile Include="Specification\Abstract\ISpecification.cs" />
     <Compile Include="Specification\Abstract\NotSpecification.cs" />
     <Compile Include="Specification\Abstract\OrSpecification.cs" />
+    <Compile Include="Specification\Person\Simple\PersonFromAgeSpecification.cs" />
+    <Compile Include="Specification\Person\Simple\PersonJobTitleSpecification.cs" />
     <Compile Include="Specification\Person\Simple\PersonNameSpecification.cs" />
+    <Compile Include="Specification\Person\Simple\PersonUntilAgeSpecification.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
