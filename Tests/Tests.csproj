@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9FD1FE7D-DC4D-47A6-B3F8-113B888E63C9}</ProjectGuid>
+    <ProjectGuid>{B9208D28-5226-49F7-9F19-64D37DA19EDD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessLayer</RootNamespace>
-    <AssemblyName>BusinessLayer</AssemblyName>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\..\..\..\Users\Gergo\Documents\Moq.4.0.10827\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.9.10348, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\NUnit 2.5.9\bin\net-2.0\framework\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,19 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builder\SpecificationBuilder.cs" />
-    <Compile Include="Entity\Person.cs" />
-    <Compile Include="Facade\PersonFacade.cs" />
+    <Compile Include="BusinessLayer\Specification\Abstract\AndSpecificationTests.cs" />
+    <Compile Include="BusinessLayer\Specification\Abstract\CompositeSpecificationTests.cs" />
+    <Compile Include="BusinessLayer\Specification\Abstract\NotSpecificationTests.cs" />
+    <Compile Include="BusinessLayer\Specification\Abstract\OrSpecificationTests.cs" />
+    <Compile Include="BusinessLayer\Specification\Abstract\TestHelper\SpecificationGenerator.cs" />
+    <Compile Include="BusinessLayer\Specification\Person\PersonNameSpecificationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Query\PersonQuery.cs" />
-    <Compile Include="Query\SpecificationLogic.cs" />
-    <Compile Include="Repository\PersonRepository.cs" />
-    <Compile Include="Specification\Abstract\AndSpecification.cs" />
-    <Compile Include="Specification\Abstract\CompositeSpecification.cs" />
-    <Compile Include="Specification\Abstract\ISpecification.cs" />
-    <Compile Include="Specification\Abstract\NotSpecification.cs" />
-    <Compile Include="Specification\Abstract\OrSpecification.cs" />
-    <Compile Include="Specification\Person\Simple\PersonNameSpecification.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{9FD1FE7D-DC4D-47A6-B3F8-113B888E63C9}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

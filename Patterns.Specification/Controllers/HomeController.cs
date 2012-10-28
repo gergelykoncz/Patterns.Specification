@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BusinessLayer.Facade;
 
 namespace Patterns.Specification.Controllers
@@ -10,16 +6,16 @@ namespace Patterns.Specification.Controllers
     public class HomeController : Controller
     {
 
-        private readonly ICarFacade _carFacade;
+        private readonly PersonFacade _personFacade;
 
-        public HomeController(ICarFacade carFacade)
+        public HomeController(PersonFacade personFacade)
         {
-            this._carFacade = carFacade;
+            this._personFacade = personFacade;
         }
 
         public ActionResult Index()
         {
-            return View();
+            return View(_personFacade.GetPersons());
         }
 
     }

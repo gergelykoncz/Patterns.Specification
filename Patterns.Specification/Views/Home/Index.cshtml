@@ -1,16 +1,42 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
-    <title>Index</title>
+    <title>All Persons</title>
 </head>
 <body>
-    <div>
-        <h1>Fuuuuu</h1>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Age
+                </td>
+                <td>
+                    JobTitle
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model)
+            {
+                <tr>
+                    <td>
+                        @person.Name
+                    </td>
+                    <td>
+                        @person.Age
+                    </td>
+                    <td>
+                        @person.JobTitle
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </body>
 </html>

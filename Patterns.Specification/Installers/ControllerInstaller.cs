@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using BusinessLayer.Facade;
+using BusinessLayer.Repository;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
@@ -15,8 +16,9 @@ namespace Patterns.Specification.Installers
                 .LifestyleTransient());
 
             container.Register(
-                Component.For<ICarFacade>()
-                .ImplementedBy<CarFacade>());
+                Component.For<PersonRepository>());
+            container.Register(
+                Component.For<PersonFacade>());
         }
     }
 }
