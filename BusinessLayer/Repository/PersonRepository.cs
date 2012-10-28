@@ -9,7 +9,7 @@ namespace BusinessLayer.Repository
     public class PersonRepository
     {
         private IList<Person> _persons;
-        private IList<Person> Persons
+        public virtual IList<Person> Persons
         {
             get
             {
@@ -39,7 +39,7 @@ namespace BusinessLayer.Repository
         {
             var result = new List<Person>();
             Random rnd = new Random();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 20; i++)
             {
                 result.Add(generatePerson(rnd));
             }

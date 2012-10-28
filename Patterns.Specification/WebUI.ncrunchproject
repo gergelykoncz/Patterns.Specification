@@ -16,9 +16,4 @@
   <UseBuildConfiguration />
   <ProxyProcessPath />
   <UseCPUArchitecture>AutoDetect</UseCPUArchitecture>
-  <IgnoredTests>
-    <RegexTestSelector>
-      <RegularExpression>.*</RegularExpression>
-    </RegexTestSelector>
-  </IgnoredTests>
 </ProjectConfiguration>

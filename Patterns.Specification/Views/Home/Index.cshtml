@@ -1,12 +1,49 @@
-﻿@{
-    Layout = null;
+﻿@model Patterns.Specification.ViewModels.PersonViewModel
+@{
+    
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <title>All Persons</title>
+    <title>Persons</title>
 </head>
 <body>
+    <h1>
+        Persons</h1>
+    <fieldset>
+        <legend>Search </legend>
+        @using (Html.BeginForm())
+        {
+            <p>@Html.LabelFor(x => x.Query.NameFragment, "Name fragment:")
+                @Html.TextBoxFor(x => x.Query.NameFragment)
+                And:
+                @Html.RadioButtonFor(x => x.Query.NameLogic, BusinessLayer.Query.SpecificationLogic.And, new { @checked = "checked" })
+                Or:
+                @Html.RadioButtonFor(x => x.Query.NameLogic, BusinessLayer.Query.SpecificationLogic.Or)
+                @Html.LabelFor(x => x.Query.JobFragment, "Job title:")
+                @Html.TextBoxFor(x => x.Query.JobFragment)
+            </p>
+            <div>
+                And:
+                @Html.RadioButtonFor(x => x.Query.JobLogic, BusinessLayer.Query.SpecificationLogic.And, new { @checked = "checked" })
+                Or:
+                @Html.RadioButtonFor(x => x.Query.JobLogic, BusinessLayer.Query.SpecificationLogic.Or)
+            </div>
+            <p>@Html.LabelFor(x => x.Query.MinAge, "From age:")
+                @Html.TextBoxFor(x => x.Query.MinAge)
+                And:
+                @Html.RadioButtonFor(x => x.Query.MinAgeLogic, BusinessLayer.Query.SpecificationLogic.And, new { @checked = "checked" })
+                Or:
+                @Html.RadioButtonFor(x => x.Query.MinAgeLogic, BusinessLayer.Query.SpecificationLogic.Or)
+                @Html.LabelFor(x => x.Query.MaxAge, "Until age:")
+                @Html.TextBoxFor(x => x.Query.MaxAge)</p>
+            <p>
+                <input type="submit" value="Search" />
+            </p>
+        }
+    </fieldset>
+    <h3>
+        Search results</h3>
     <table>
         <thead>
             <tr>
@@ -22,7 +59,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var person in Model)
+            @foreach (var person in Model.Result)
             {
                 <tr>
                     <td>

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Builder\SpecificationBuilder.cs" />
     <Compile Include="Entity\Person.cs" />
+    <Compile Include="Facade\IPersonFacade.cs" />
     <Compile Include="Facade\PersonFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\PersonQuery.cs" />

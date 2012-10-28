@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using BusinessLayer.Builder;
 using BusinessLayer.Facade;
 using BusinessLayer.Repository;
 using Castle.MicroKernel.Registration;
@@ -16,9 +17,14 @@ namespace Patterns.Specification.Installers
                 .LifestyleTransient());
 
             container.Register(
-                Component.For<PersonRepository>());
+                Component.For<PersonRepository>().LifestyleSingleton());
             container.Register(
-                Component.For<PersonFacade>());
+                Component.For<SpecificationBuilder>());
+            container.Register(
+                Component.For<IPersonFacade>()
+                .ImplementedBy<PersonFacade>());
+
+             
         }
     }
 }

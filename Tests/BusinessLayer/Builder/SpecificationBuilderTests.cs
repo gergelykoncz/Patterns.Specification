@@ -11,32 +11,47 @@ namespace Tests.BusinessLayer.Builder
     public class SpecificationBuilderTests
     {
         [Test]
-        public void ReturnsAndSpecificationIfSpecifiedInQuery()
+        public void GetNameAndJobSpecificationReturnsAndSpecificationIfQueryIsAnd()
         {
             var builder = new SpecificationBuilder();
-            PersonQuery query = new PersonQuery() { Logic = SpecificationLogic.And };
-            var specification = builder.BuildSpecificationFromQuery(query);
+            ISpecification<Person> specification = builder.GetNameAndJobSpecification(SpecificationLogic.And, string.Empty, string.Empty);
 
             Assert.IsInstanceOf<AndSpecification<Person>>(specification);
         }
 
         [Test]
-        public void ReturnsOrSpecificationIfSpecifiedInQuery()
+        public void GetNameAndJobSpecificationReturnsOrSpecificationIfQueryIsOr()
         {
             var builder = new SpecificationBuilder();
-            PersonQuery query = new PersonQuery() { Logic = SpecificationLogic.Or };
-            var specification = builder.BuildSpecificationFromQuery(query);
+            ISpecification<Person> specification = builder.GetNameAndJobSpecification(SpecificationLogic.Or, string.Empty, string.Empty);
+
+            Assert.IsInstanceOf<OrSpecification<Person>>(specification);
+        }
+
+        [Test]
+        public void GetAgeSpecificationsReturnsAndSpecificationIfQueryIsAnd()
+        {
+            var builder = new SpecificationBuilder();
+            ISpecification<Person> specification = builder.GetAgeSpecifications(SpecificationLogic.And, 0, 0);
+
+            Assert.IsInstanceOf<AndSpecification<Person>>(specification);
+        }
+
+        [Test]
+        public void GetAgeSpecificationsReturnsOrSpecificationIfQueryIsOr()
+        {
+            var builder = new SpecificationBuilder();
+            ISpecification<Person> specification = builder.GetAgeSpecifications(SpecificationLogic.Or, 0, 0);
 
             Assert.IsInstanceOf<OrSpecification<Person>>(specification);
         }
 
         [Test]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void FailsIfNoLogicIsSpecifiedInQuery()
+        public void GetSpecificationThrowsWhenQueryIsInvalid()
         {
             var builder = new SpecificationBuilder();
-            PersonQuery query = new PersonQuery();
-            builder.BuildSpecificationFromQuery(query);
+            builder.BuildSpecificationFromQuery(new PersonQuery() { JobLogic = SpecificationLogic.Invalid });
         }
     }
 }

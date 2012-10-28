@@ -7,7 +7,7 @@ using BusinessLayer.Specification.Abstract;
 
 namespace BusinessLayer.Facade
 {
-    public class PersonFacade
+    public class PersonFacade : IPersonFacade
     {
         private readonly PersonRepository _repository;
         private readonly SpecificationBuilder _specificationBuilder;
@@ -19,12 +19,12 @@ namespace BusinessLayer.Facade
             this._specificationBuilder = specificationBuilder;
         }
 
-        public IEnumerable<Person> GetPersons()
+        public virtual IEnumerable<Person> GetPersons()
         {
             return _repository.GetAll();
         }
 
-        public IEnumerable<Person> Search(PersonQuery query)
+        public virtual IEnumerable<Person> Search(PersonQuery query)
         {
             ISpecification<Person> personSpecification = _specificationBuilder.BuildSpecificationFromQuery(query);
             return _repository.GetBySpecification(personSpecification);
