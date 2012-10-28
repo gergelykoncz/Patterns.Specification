@@ -25,12 +25,12 @@ namespace BusinessLayer.Repository
         private string[] _titles = { "CEO", "IT Professional", "Developer", "Consultant" };
 
 
-        public IEnumerable<Person> GetAll()
+        public virtual IEnumerable<Person> GetAll()
         {
             return Persons;
         }
 
-        public IEnumerable<Person> GetBySpecification(ISpecification<Person> specification)
+        public virtual IEnumerable<Person> GetBySpecification(ISpecification<Person> specification)
         {
             return Persons.Where(x => specification.IsSatisfiedBy(x));
         }
